@@ -2,6 +2,11 @@
 
 A social network for students all across Austria.
 
+# Team
+- Alexander Bauer
+- Fabio Birnegger
+- Sebastian Chmel
+
 # Installation
 
 1) Start up xampp or any other server tool and start up 'MySQL Database' & 'Apache Web Server'.
