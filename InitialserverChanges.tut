@@ -1,0 +1,52 @@
+###################################################
+** my.cnf **
+
+1) Locate 'my.cnf' of your server (usually under /xampp/etc/) and open it in a editor.
+
+2) Find 'max_allowed_packet' variable (line 32) and change it to 'max_allowed_packet=1073741824'.
+
+###################################################
+** php.ini **
+
+1) Locate 'php.ini' of your server (usually under /xampp/etc/) and open it in a editor.
+
+2) Find 'upload_max_filesize' variable (line 886) and change it to 'upload_max_filesize=40M'.
+
+###################################################
+The contact formular will only send emails if you configure xampp properly because this is only a raw version of the software so we
+would need a proper webserver for sending emails without configuration. To test the contact mailing function you have to configure
+2 files in the xampp installation folder as follows:
+
+** php.ini **
+
+1) Search for '[mailfunction]'
+2) Comment every line (with ';') but 'sendmail_path' and 'mail.add_x_header'
+3) Change 'sendmail_path' to 'sendmail_path = C:\xampp\sendmail\sendmail.exe'
+
+** sendmail.ini **
+
+1) Comment every line in this file but the following with corresponding equals:
+
+smtp_server=smtp.gmail.com
+smtp_port=587
+smtp_ssl=tls
+default_domain=localhost
+error_logfile=error.log
+debug_logfile=debug.log
+auth_username=YOURGMAIL-ID@gmail.com
+auth_password=YOURGMAIL-PASSWORD
+force_sender=YOURGMAIL-ID@gmail.com
+hostname=localhost
+
+2) If you did these changes you should also enable 'less secure apps to access Gmail' in your Google settings.
+
+3) You have to change the variable '$myemail' in 'contactform_send.php' to the e-mail address you want the mail to be send to.
+
+
+###################################################
+****IMPORTANT****
+
+!!!Restart your server to apply changes!!!
+
+*****************
+###################################################
