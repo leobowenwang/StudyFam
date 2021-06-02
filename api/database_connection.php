@@ -63,7 +63,7 @@ function fetch_user_last_activity($user_id, $connect)
 
     function get_user_name($user_id, $connect)
     {
-        $query = "SELECT username FROM login WHERE user_id = '$user_id'";
+        $query = "SELECT CONCAT(fname,' ',lname) AS username FROM users WHERE id = '$user_id'";
         $statement = $connect->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll();
